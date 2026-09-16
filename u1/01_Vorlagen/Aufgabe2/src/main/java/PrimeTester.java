@@ -4,12 +4,16 @@ public class PrimeTester {
     void main() {
         int number = SimpleIO.readInt("Ist es eine Primzahl? 'n': ");
 
-        // TODO
+        IO.println(isPrime(number) ? "Ja" : "Nein");
     }
 
     boolean isPrime(int number) {
-        // TODO
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
 
-        return false;
+        return true;
     }
 }
