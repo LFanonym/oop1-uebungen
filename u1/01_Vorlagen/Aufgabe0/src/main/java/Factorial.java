@@ -14,8 +14,10 @@ public class Factorial {
 
 	int factorial(int number) {
         int product = 1;
-        for (int counter = 1; counter <= number; counter++) {
+        int counter = 1;
+        while (counter <= number) {
             product *= counter;
+            counter++;
         }
         return product;
     }
