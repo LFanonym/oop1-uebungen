@@ -1,11 +1,11 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class RecursiveSum {
 	void main() {
 		int[] valuesToSum = randomSeries(1000);
 
-		// TODO
-		// Compute the sum of the above values recursively
+		IO.println(sumOfArray(valuesToSum));
 	}
 	
 	int[] randomSeries(int amount) {
@@ -17,5 +17,12 @@ public class RecursiveSum {
 		}
 
 		return values;
+	}
+
+	int sumOfArray(int[] input) {
+		if (input.length == 0) {
+			return 0;
+		}
+		return input[0] + sumOfArray(Arrays.copyOfRange(input, 1, input.length));
 	}
 }
