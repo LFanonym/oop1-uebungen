@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Eratosthenes {
 	private static final int PRIMES_UP_TO = 100;
 
@@ -14,6 +16,41 @@ public class Eratosthenes {
 		// 1. initialize sieved values
 		// 2. strike out values / sieve
 		// 3. report result
+		sievedValues = getFilledArray(sievedValues.length);
+		sievedValues = sievePrimeValues(sievedValues);
+		printSievedValues(sievedValues);
+	}
+
+	void printSievedValues(int[] sievedValues) {
+		int[] filteredArray = Arrays.stream(sievedValues).filter(i -> i > 0).toArray();
+		IO.println("Found primes: " + Arrays.toString(filteredArray));
+	}
+
+	int[] sievePrimeValues(int[] input) {
+		for (int i = 2; i < input.length; i++) {
+			int currentValue = input[i];
+
+			// Has the number already been crossed out?
+			if (currentValue < 0) {
+				continue;
+			}
+
+			int numberToCross = currentValue * 2;
+			while (numberToCross <= PRIMES_UP_TO) {
+				input[numberToCross] = -numberToCross;
+				numberToCross += currentValue;
+			}
+		}
+		return input;
+	}
+
+	int[] getFilledArray(int length) {
+		int[] result = new int[length];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = i;
+		}
+		result[0] = -1;
+		return result;
 	}
 
 	void oldCalculation() {
