@@ -3,8 +3,10 @@ void main() {
 }
 
 void symbolSquare(char symbol, int amount) {
+	int columns = amount;
 	for (int i = 1; i <= amount; i++) {
-		symbolLine(symbol, amount);
+		symbolLine(symbol, columns);
+		columns--;
 	}
 }
 
