@@ -1,33 +1,53 @@
 public class BankAccount {
-    private final long kontoNummer;
-    private double kontoStand;
+    private final long accountNumber;
+    private double balance;
+    private BankCustomer bankCustomer;
 
-    public long getKontoNummer() {
-        return kontoNummer;
+    public long getAccountNumber() {
+        return accountNumber;
     }
 
-    public double getKontoStand() {
-        return kontoStand;
+    public double getBalance() {
+        return balance;
     }
 
-    public boolean deposit(double betrag) {
-        if (betrag < 0) {
+    public boolean deposit(double amount) {
+        if (amount < 0) {
             return false;
         }
-        this.kontoStand += betrag;
+        this.balance += amount;
         return true;
     }
 
-    public boolean withdraw(double betrag) {
-        if (this.kontoStand - betrag < 0) {
+    public boolean withdraw(double amount) {
+        if (this.balance - amount < 0) {
             return false;
         }
-        this.kontoStand -= betrag;
+        this.balance -= amount;
         return true;
     }
 
-    public BankAccount(long kontoNummer) {
-        this.kontoNummer = kontoNummer;
-        this.kontoStand = 0;
+    public BankAccount(long accountNumber) {
+        this.accountNumber = accountNumber;
+        this.balance = 0;
+    }
+
+    public boolean sameCustomer(BankAccount other) {
+        return this.bankCustomer == other.bankCustomer;
+    }
+
+    public BankManager getManager() {
+        return this.bankCustomer.getBankManager();
+    }
+
+    public void print() {
+        IO.println(
+                "===========================\n" +
+                "BankAccount " + this.accountNumber + ":\n" +
+                "balance = " + this.balance + "\n" +
+                "bankCustomer = "
+        );
+        bankCustomer.print();
+        IO.println("===========================\n");
     }
 }
