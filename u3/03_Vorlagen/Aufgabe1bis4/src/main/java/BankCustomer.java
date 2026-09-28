@@ -46,7 +46,11 @@ public class BankCustomer {
     }
 
     public BankAccount openNewAccount(long number) {
-        return new BankAccount(number);
+        return new BankAccount(number, this);
+    }
+
+    public BankCustomer() {
+        this.bankManager = new BankManager();
     }
 
     public void print() {

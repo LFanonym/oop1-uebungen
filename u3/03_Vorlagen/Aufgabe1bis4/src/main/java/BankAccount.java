@@ -29,6 +29,13 @@ public class BankAccount {
 
     public BankAccount(long accountNumber) {
         this.accountNumber = accountNumber;
+        this.bankCustomer = new BankCustomer();
+        this.balance = 0;
+    }
+
+    public BankAccount(long accountNumber, BankCustomer bankCustomer) {
+        this.accountNumber = accountNumber;
+        this.bankCustomer = bankCustomer;
         this.balance = 0;
     }
 
