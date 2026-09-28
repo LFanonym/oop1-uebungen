@@ -1,26 +1,21 @@
 // Provide your Point class implementation here
 public class Point {
-    // TODO
+    private int x, y;
 
     public Point(int x, int y) {
-        // TODO
+        this.x = x;
+        this.y = y;
     }
 
     public boolean isSame(Point point) {
-        // TODO
-
-        throw new UnsupportedOperationException("unimplemented yet");
+        return this.x == point.x && this.y == point.y;
     }
 
     public int getX() {
-        // TODO
-
-        throw new UnsupportedOperationException("unimplemented yet");
+        return this.x;
     }
 
     public int getY() {
-        // TODO
-
-        throw new UnsupportedOperationException("unimplemented yet");
+        return this.y;
     }
 }
