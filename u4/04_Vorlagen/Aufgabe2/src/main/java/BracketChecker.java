@@ -6,12 +6,24 @@ public class BracketChecker {
 	public boolean validate(String input) {
 		var stack = new OwnStack(input.length());
 
-		// TODO
-		throw new UnsupportedOperationException("not implemented yet");
-	}
+		var inputArray = input.toCharArray();
+		for (char c: inputArray) {
+			if (!handleChar(stack, c)) {
+				return false;
+			}
+		}
+        return stack.isEmpty();
+    }
 
 	private boolean handleChar(OwnStack stack, char c) {
-		// TODO
+		if (isOpeningBracket(c)) {
+			stack.push(String.valueOf(c));
+		}
+		if (isClosingBracket(c)) {
+			var expected = getOpening(c);
+			char actual = stack.pop().toCharArray()[0];
+            return expected != null && expected == actual;
+		}
 		return true;
 	}
 
