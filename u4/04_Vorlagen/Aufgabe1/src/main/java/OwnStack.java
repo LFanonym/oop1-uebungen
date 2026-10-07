@@ -1,33 +1,38 @@
 public class OwnStack {
-    // TOODO
+    int stackpointer;
+    String[] stack;
 
     public OwnStack(int capacity) {
-        // TOODO
+        stack = new String[capacity];
     }
 
     public void push(String element) {
-        // TOODO
-        throw new UnsupportedOperationException("not implemented yet");
+        if (this.isFull()) {
+            throw new StackOverflowError();
+        }
+        stack[stackpointer] = element;
+        stackpointer++;
     }
 
     public String pop() {
-        // TOODO
-        throw new UnsupportedOperationException("not implemented yet");
+        if (stackpointer == 0) {
+            return null;
+        }
+        stackpointer--;
+        String value = stack[stackpointer];
+        stack[stackpointer] = null;
+        return value;
     }
 
     public int size() {
-        // TOODO
-        throw new UnsupportedOperationException("not implemented yet");
+        return stackpointer;
     }
 
-    // TOODO
     public boolean isEmpty() {
-        // TOODO
-        throw new UnsupportedOperationException("not implemented yet");
+        return stackpointer == 0;
     }
 
     public boolean isFull() {
-        // TOODO
-        throw new UnsupportedOperationException("not implemented yet");
+        return stackpointer == stack.length;
     }
 }
