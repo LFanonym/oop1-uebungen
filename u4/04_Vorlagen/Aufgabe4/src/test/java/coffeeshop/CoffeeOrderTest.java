@@ -18,16 +18,16 @@ class CoffeeOrderTest {
     @Test
     void canAddOrderPosition() {
         var coffeeOrder = new CoffeeOrder(4);
-        coffeeOrder.add(3, "ESPRESSO");
+        coffeeOrder.add(3, CoffeeType.ESPRESSO);
 
         assertEquals(1, coffeeOrder.getCurrentIdx());
 
-        coffeeOrder.add(7, "LATTE");
+        coffeeOrder.add(7, CoffeeType.LATTE);
         assertEquals(2, coffeeOrder.getCurrentIdx());
 
         var first = coffeeOrder.getPositions()[0];
 
         assertAll(() -> assertEquals(3, first.getAmount()),
-                  () -> assertEquals("ESPRESSO", first.getCoffeeType()));
+                  () -> assertEquals(CoffeeType.ESPRESSO, first.getCoffeeType()));
     }
 }

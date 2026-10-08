@@ -3,14 +3,14 @@ package coffeeshop;
 public class CoffeeOrderPosition {
 
     private final int amount;
-    private final String coffeeType;
+    private final CoffeeType coffeeType;
 
-    public CoffeeOrderPosition(int amount, String coffeeType) {
+    public CoffeeOrderPosition(int amount, CoffeeType coffeeType) {
         this.amount = amount;
         this.coffeeType = coffeeType;
     }
 
-    public String getCoffeeType() {
+    public CoffeeType getCoffeeType() {
         return coffeeType;
     }
 
