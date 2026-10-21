@@ -4,9 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Date;
+import java.time.Instant;
 
-public class FileLogger implements Closeable {
+public class FileLogger implements Closeable, Logger {
 
 	private OutputStreamWriter logWriter;
 
@@ -15,7 +15,12 @@ public class FileLogger implements Closeable {
 	}
 
 	public void log(String message) {
-		// logWriter.write(timestamp + ": " + message + '\n');
+		Instant timestamp = Instant.now();
+		try {
+			logWriter.write(timestamp + ": " + message + '\n');
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

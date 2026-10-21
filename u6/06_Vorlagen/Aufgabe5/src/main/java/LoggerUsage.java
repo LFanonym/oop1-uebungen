@@ -9,8 +9,7 @@ public class LoggerUsage {
 	}
 
 	static void main() throws IOException {
-		// TODO
-		/*
+
 		Logger nullLogger = new NullLogger();
 		someOperation(nullLogger);
 
@@ -20,6 +19,5 @@ public class LoggerUsage {
 		FileLogger fileLogger = new FileLogger(new File("log.txt"));
 		someOperation(fileLogger);
 		fileLogger.close();
-		*/
 	}
 }
