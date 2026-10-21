@@ -8,9 +8,9 @@ class CoffeeOrderPositionTest {
 
     @Test
     void canCreatePosition() {
-        var position = new CoffeeOrderPosition(2, "ESPRESSO");
+        var position = new CoffeeOrderPosition(2, CoffeeType.ESPRESSO);
 
         assertEquals(2, position.getAmount());
-        assertEquals("ESPRESSO", position.getCoffeeType());
+        assertEquals(CoffeeType.ESPRESSO, position.getCoffeeType());
     }
 }

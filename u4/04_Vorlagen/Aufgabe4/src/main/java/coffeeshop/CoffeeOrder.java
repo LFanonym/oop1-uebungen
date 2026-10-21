@@ -11,7 +11,7 @@ public class CoffeeOrder {
         positions = new CoffeeOrderPosition[size];
     }
 
-    public void add(int amount, String coffeeType) {
+    public void add(int amount, CoffeeType coffeeType) {
         if (currentIdx < positions.length)
         {
             positions[currentIdx] = new CoffeeOrderPosition(amount, coffeeType);

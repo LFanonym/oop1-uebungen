@@ -2,10 +2,10 @@ package coffeeshop;
 
 import org.junit.jupiter.api.Test;
 
+import static coffeeshop.CoffeeType.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CoffeeTypeTest {
-/*
     @Test
     void testEspresso() {
         assertEquals("Klein", ESPRESSO.getSize());
@@ -33,5 +33,4 @@ class CoffeeTypeTest {
         assertEquals(1, MOCHA.getAmountOfShots());
         assertFalse(MOCHA.isDecaf());
     }
-*/
 }
