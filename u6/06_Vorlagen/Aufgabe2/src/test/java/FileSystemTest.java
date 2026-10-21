@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class FileSystemTest {
 
-    /*
     @Test
     void testGetNameForFile() {
         FilesystemElement document = new File("Document", 15L);
@@ -74,5 +73,4 @@ public class FileSystemTest {
 
         assertEquals(2_219_500L, homework.getSize());
     }
-     */
 }
