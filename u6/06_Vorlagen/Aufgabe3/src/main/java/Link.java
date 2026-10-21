@@ -14,4 +14,11 @@ public class Link extends  FilesystemElement {
     public FilesystemElement getTarget() {
         return this.target;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Link that = (Link) o;
+        return this.target.equals(that.getTarget()) && this.getName().equals(that.getName());
+    }
 }

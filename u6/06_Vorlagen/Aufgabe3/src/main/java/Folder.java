@@ -18,4 +18,11 @@ public class Folder extends FilesystemElement {
         }
         return size;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Folder that = (Folder) o;
+        return entries.equals(that.entries) && this.getName().equals(that.getName());
+    }
 }
