@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class StudentRepository {
@@ -12,19 +13,22 @@ public class StudentRepository {
 
     public Optional<Student> findByName(String name) {
 
-        // TODO
-
-        return Optional.empty();
+        return students.stream()
+                .filter((student) -> Objects.equals(name, student.getName()))
+                .findAny();
     }
 
     public Optional<String> findEmailByName(String name) {
-        // TODO
-
-        return Optional.empty();
+        return findByName(name).map(Student::getEmail);
     }
 
     static void main() {
-
-        // TODO
+        StudentRepository studentRepository = new StudentRepository();
+        studentRepository.findEmailByName("Anna").ifPresent(IO::println);
+        studentRepository.findByName("Eva").ifPresentOrElse(
+                IO::println,
+                () -> IO.println("Student 'Eva' not found!")
+        );
+        
     }
 }
