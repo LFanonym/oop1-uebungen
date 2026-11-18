@@ -6,7 +6,7 @@ import java.util.*;
 
 public class StoryReconstructor {
 	static void main() throws URISyntaxException {
-		Map<Integer, String> story = new TreeMap();
+		Map<Integer, String> story = new TreeMap<>();
 		List<String[]> lines = new ArrayList<>();
         Path inputPath = Path.of(Objects.requireNonNull(StoryReconstructor.class.getResource("./story-input.txt")).toURI());
 
@@ -22,10 +22,9 @@ public class StoryReconstructor {
 			story.put(Integer.valueOf(line[0]), line[1]);
 		}
 		StringBuilder fullStory = new StringBuilder();
-		for (int i: story.keySet().stream().sorted().toList()) {
+		for (int i: story.keySet()) {
             fullStory.append(story.get(i)).append(" ");
 		}
-
 		String outputFile = IO.readln("File to save the story to: ");
 		try {
 			Files.writeString(Path.of(outputFile), fullStory.toString());
