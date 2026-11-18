@@ -21,13 +21,10 @@ public class StoryReconstructor {
         for (String[] line: lines) {
 			story.put(Integer.valueOf(line[0]), line[1]);
 		}
-		StringBuilder fullStory = new StringBuilder();
-		for (int i: story.keySet()) {
-            fullStory.append(story.get(i)).append(" ");
-		}
+
 		String outputFile = IO.readln("File to save the story to: ");
 		try {
-			Files.writeString(Path.of(outputFile), fullStory.toString());
+			Files.writeString(Path.of(outputFile), String.join(" ", story.values()));
 		} catch (IOException e) {
 			IO.println("Could not write to the output file!");
         }
