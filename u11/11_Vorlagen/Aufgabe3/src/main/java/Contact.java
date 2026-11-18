@@ -3,7 +3,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Contact {
+
+public class Contact implements Serializable {
 
     private final String name;
     private final String address;
