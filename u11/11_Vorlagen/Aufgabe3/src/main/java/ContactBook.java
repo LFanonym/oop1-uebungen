@@ -3,17 +3,27 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContactBook {
+public class ContactBook implements Serializable {
     private static final String FILE_NAME = "contactBook.bin";
     private Map<String, Contact> contactBook = new HashMap<>();
 
     @SuppressWarnings("unchecked")
     public void load() throws ContactBookException {
-        // TODO implement
+        try (var stream = new ObjectInputStream(
+                new FileInputStream(FILE_NAME))) {
+            contactBook = (Map<String, Contact>) stream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new ContactBookException(e.getMessage());
+        }
     }
 
     public void save() throws ContactBookException {
-        // TODO implement
+        try (var stream = new ObjectOutputStream(
+                new FileOutputStream(FILE_NAME))) {
+            stream.writeObject(contactBook);
+        } catch (IOException e) {
+            throw new ContactBookException(e.getMessage());
+        }
     }
 
     public void addContact(Contact contact) {

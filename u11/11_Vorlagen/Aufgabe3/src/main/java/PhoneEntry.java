@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PhoneEntry {
+public class PhoneEntry implements Serializable {
     private final String number;
     private final String description;
 
